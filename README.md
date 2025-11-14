@@ -115,4 +115,4 @@ HTML/CSS 디자인 참고
 **✨ 개발자 정보**
 Heo Yunseo (허윤서)
 GitHub: https://github.com/Rachel1028
-Repository: https://github.com/Rachel1028/opensource_lotto
+Repository: https://github.com/Rachel1028/opensource_lotto_project_final
