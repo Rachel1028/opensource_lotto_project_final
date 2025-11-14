@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 대시보드</title>
+    <style>
+        body { text-align: center; font-family: sans-serif; background-color: #fafafa; }
+        .box { width: 450px; margin: 20px auto; background: #fff; padding: 20px;
+               border-radius: 10px; font-size: 18px; }
+        .btn { background: #333; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<h1>📊 관리자 대시보드</h1>
+
+<div class="box">
+    <b>총 판매된 티켓 수: </b> {{ total_tickets }}
+</div>
+
+<div class="box">
+    <b>최근 구매 내역</b>
+    <ul style="list-style:none;">
+        {% for t in recent_tickets %}
+            <li>{{ t.user }} : {{ t.numbers }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="box">
+    <b>최근 당첨 번호:</b><br>
+    {% if latest_draw %}
+        {{ latest_draw.numbers }}
+    {% else %}
+        아직 추첨 기록이 없습니다.
+    {% endif %}
+</div>
+
+<a class="btn" href="/admin-draw/">🎯 새 당첨 번호 추첨</a>
+
+</body>
+</html>
+
+<br><br>
+<a class="btn" href="/winners/">🏆 당첨자 확인</a>

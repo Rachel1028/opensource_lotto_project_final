@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RESULT</title>
+
+    <style>
+        body {
+            font-family: "Apple SD Gothic Neo", sans-serif;
+            background: #eef1f7;
+        }
+
+        .box {
+            width: 90%;
+            max-width: 700px;
+            background: white;
+            margin: 40px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a6cf7;
+            margin-bottom: 25px;
+        }
+
+        .ticket {
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 10px;
+            color: #333;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .red { background:#ffe1e1; border-left: 7px solid #ff4d4d; }
+        .blue { background:#e1e8ff; border-left: 7px solid #4d7aff; }
+        .gray { background:#eeeeee; border-left: 7px solid #999; }
+
+        .back {
+            display:block;
+            text-align:center;
+            margin-top: 20px;
+            color:#555;
+            text-decoration:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>🏆 당첨 결과</h1>
+
+    {% if error %}
+    <p style="color:red; text-align:center; font-weight:bold;">
+        {{ error }}
+    </p>
+    {% else %}
+
+    <h3 style="text-align:center;">이번 회차 당첨 번호 🎉<br>
+        <span style="font-size:24px; color:#4a6cf7;">{{ winning }}</span>
+    </h3>
+    <hr>
+
+    {% for r in results %}
+        <div class="ticket {{ r.color }}">
+            <b>{{ r.name }}</b> — {{ r.numbers }}<br>
+            맞은 개수: <b>{{ r.matched }}</b>개<br>
+            결과: <b>{{ r.rank }}</b>
+        </div>
+    {% endfor %}
+
+    {% endif %}
+
+    <a class="back" href="/">← 홈으로 돌아가기</a>
+</div>
+
+</body>
+</html>

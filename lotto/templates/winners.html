@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>당첨자 확인</title>
+    <style>
+        body { text-align: center; background:#fafafa; font-family: sans-serif; }
+        .box { width: 500px; margin: 20px auto; background:white; padding:20px;
+               border-radius:10px; }
+        .rank1 { background:#ffdddd; font-weight:bold; }
+        .rank2, .rank3 { background:#dde7ff; }
+        .rank0 { background:#eeeeee; }
+        table { margin: 20px auto; border-collapse: collapse; width: 90%; }
+        th, td { padding: 12px; border-bottom:1px solid #ccc; font-size:18px; }
+    </style>
+</head>
+<body>
+
+<h1>🏆 당첨자 확인</h1>
+
+{% if error %}
+    <div class="box">{{ error }}</div>
+{% else %}
+
+<div class="box">
+    <h3>이번 회차 당첨 번호</h3>
+    <p style="font-size:22px; font-weight:bold;">{{ win_nums }}</p>
+</div>
+
+<table>
+    <tr>
+        <th>이름</th>
+        <th>번호</th>
+        <th>등수</th>
+    </tr>
+
+    {% for t in results %}
+        <tr class="rank{{ t.rank }}">
+            <td>{{ t.user }}</td>
+            <td>{{ t.numbers }}</td>
+            <td>
+                {% if t.rank == 1 %}
+                    🎉 1등
+                {% elif t.rank == 2 %}
+                    2등
+                {% elif t.rank == 3 %}
+                    3등
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endif %}
+
+</body>
+</html>

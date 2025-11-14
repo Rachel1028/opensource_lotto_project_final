@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>BUY LOTTO</title>
+
+    <style>
+        body {
+            background: #f2f4f8;
+            font-family: "Apple SD Gothic Neo", sans-serif;
+        }
+
+        .box {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            margin: 40px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a6cf7;
+            margin-bottom: 25px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            background: #4a6cf7;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #354ecb;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>🎟 로또 구매</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label>이름</label>
+        <input type="text" name="name" required>
+
+        <label>구매 방식</label>
+        <select name="mode">
+            <option value="auto">자동 번호</option>
+            <option value="manual">수동 번호</option>
+        </select>
+
+        <label style="margin-top:10px;">수동 번호 입력<br><small>(예: 1, 5, 10, 23, 30, 41)</small></label>
+        <input type="text" name="numbers">
+
+        <button type="submit">구매하기</button>
+    </form>
+
+    <a class="back" href="/">← 홈으로 돌아가기</a>
+</div>
+
+</body>
+</html>
