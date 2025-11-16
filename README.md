@@ -57,4 +57,4 @@ python3 manage.py runserver
 ## ✨ 작성자
 * Name: Heo Yunseo
 * GitHub: @Rachel1028
-* Project Repository: https://github.com/Rachel1028/lotto_project
+* Project Repository: https://github.com/Rachel1028/opensource_lotto_project_final.git
